@@ -3,19 +3,58 @@
       xmlns:layout="http://www.ultraq.net.nz/tymeleaf/layout">
 
 <head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>EventosApp</title>
 </head>
 
 <body>
-    <h1>Cadastro de Evento</h1>
-    <form method="post">
-        Nome: <input type="text" value="" name="nome">
-        Local: <input type="text" value="" name="local">
-        Data: <input type="date" value="" name="data">
-        Horario: <input type="text" value="" name="horario">
+    <div class="container">
+        <div class="row">
+            <div class="col s6 offset-s3">
+                <h1>Cadastro de Evento</h1>
+            </div>
+        </div>
+        <div class="row">
+            <h3>
+                <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Lista de Eventos</a>
+            </h3>
+        </div>
+        <div class="row">
+            <form class="col s12" method="post">
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input type="text" placeholder="Nome do Evento" id="nome_evento" name="nome">
+                        <label for="nome_evento">Nome:</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input type="text" placeholder="Local" id="local_evento" name="local">
+                        <label for="local_evento">Local:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input type="date" placeholder="Dia/Mês/Ano" id="data_evento" name="data">
+                        <label for="data_evento">Data:</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input type="text" placeholder="00:00" id="horario_evento" name="horario">
+                        <label for="horario_evento">Horario:</label>
+                    </div>
+                </div>
+                <button type="submit"  class="waves-effect waves-light btn">Salvar</button>
+            </form>
+        </div>
+    </div>
 
-        <button type="submit">Salvar</button>
-    </form>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
