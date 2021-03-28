@@ -29,7 +29,7 @@
         <th:block th:include="mensagemValidacao"></th:block>
 
         <div class="row">
-            <form class="col s12" method="post">
+            <form class="col s12" method="post" id="form">
                 <div class="row">
                     <div class="input-field col s4">
                         <input type="text" placeholder="Nome do Evento" id="nome_evento" name="nome">
@@ -50,7 +50,7 @@
                         <label for="horario_evento">Horario:</label>
                     </div>
                 </div>
-                <button type="submit"  class="waves-effect waves-light btn">Salvar</button>
+                <button id="save" type="submit"  class="waves-effect waves-light btn">Salvar</button>
             </form>
         </div>
     </div>
@@ -58,6 +58,47 @@
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        const data = JSON.parse(window.localStorage.getItem('form'));
+
+        if (data != null) {
+            for (var i = 0; i < data.length; i++ ){
+                 if (data[i].name == 'nome'){
+                     $("[name='nome']").val(data[i].value);
+                 }
+                 if (data[i].name == 'local'){
+                     $("[name='local']").val(data[i].value);
+                 }
+                 if (data[i].name == 'data'){
+                     $("[name='data']").val(data[i].value);
+                 }
+                 if (data[i].name == 'horario'){
+                     $("[name='horario']").val(data[i].value);
+                 }
+            }
+        }
+
+        $( "#form" ).change(function() {
+           var data = $( this ).serializeArray();
+           localStorage.setItem('form', JSON.stringify(data));
+        });
+
+
+        $('#save').on('click', function () {
+            if( $("[name='nome']").val() != '' &&
+                $("[name='local']").val() != '' &&
+                $("[name='data']").val() != '' &&
+                $("[name='horario']").val() != '' )
+            {
+                window.localStorage.removeItem('form');
+            }
+        });
+
+    </script>
 </body>
 
 </html>
