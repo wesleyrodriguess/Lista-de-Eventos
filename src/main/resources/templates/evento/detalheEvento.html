@@ -33,6 +33,9 @@
             <p>Horario: <span th:text="${evento.horario}"></span></p>
         </div>
         <br>
+
+        <th:block th:include="mensagemValidacao"></th:block>
+
         <form method="post">
             <div class="row">
                 <div class="input-field col s4">
