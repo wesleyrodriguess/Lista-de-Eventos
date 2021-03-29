@@ -1,4 +1,4 @@
-const data = JSON.parse(window.localStorage.getItem('form'));
+const data = JSON.parse(window.localStorage.getItem('evento'));
 
 if (data != null) {
     for (var i = 0; i < data.length; i++ ){
@@ -19,7 +19,7 @@ if (data != null) {
 
 $( "#form" ).change(function() {
    var data = $( this ).serializeArray();
-   localStorage.setItem('form', JSON.stringify(data));
+   localStorage.setItem('evento', JSON.stringify(data));
 });
 
 
@@ -29,6 +29,6 @@ $('#save').on('click', function () {
         $("[name='data']").val() != '' &&
         $("[name='horario']").val() != '' )
     {
-        window.localStorage.removeItem('form');
+        window.localStorage.removeItem('evento');
     }
 });
