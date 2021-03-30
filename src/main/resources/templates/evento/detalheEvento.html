@@ -52,17 +52,23 @@
 
         <hr>
         <h5>Lista de Convidados: </h5>
-        <div th:each="convidado : ${convidados}">
-            <div class="row">
-                <div class="input-fieald com s6">
-                    <p><spam th:text="${convidado.nomeConvidado}"></spam></p>
-                </div>
-                <div class="input-fieald com s6">
-                    <p><spam th:text="${convidado.rg}"></spam></p>
-                </div>
-            </div>
-            <hr>
-        </div>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Convidado</th>
+                    <th>RG</th>
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="convidado : ${convidados}">
+                    <td><span th:text="${convidado.nomeConvidado}"></span></td>
+                    <td><span th:text="${convidado.rg}"></span></td>
+                    <td><a class="waves-effect waves-light" th:href="${(#mvc.url('EC#deleteGuest').arg(0, convidado.rg)).build()}"><i class="material-icons left">delete</i></a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
